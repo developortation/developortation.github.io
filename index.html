@@ -4,23 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website Under Construction</title>
-    
-    <!-- tsParticles Library -->
+
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
     
     <style>
-        /* Reset default margins and paddings */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Body and HTML styles */
+
         body, html {
             height: 100%;
-            background-color: #2f2f2f; /* Dark grey background */
-            color: #ffffff; /* White text */
+            background-color: #2f2f2f;
+            color: #ffffff;
             font-family: 'Arial', sans-serif;
             display: flex;
             justify-content: center;
@@ -29,19 +28,17 @@
             overflow: hidden;
         }
 
-        /* tsParticles container */
         #tsparticles {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0; /* Particles behind the content */
+            z-index: 0;
         }
 
-        /* Text content styles */
         .content {
-            z-index: 1; /* Text in front of the particles */
+            z-index: 1;
             position: relative;
         }
 
@@ -56,7 +53,7 @@
         }
 
         a {
-            color: #00acee; /* Discord/Telegram link colors */
+            color: #00acee;
             text-decoration: none;
         }
 
@@ -64,7 +61,6 @@
             text-decoration: underline;
         }
 
-        /* Responsive adjustments */
         @media (max-width: 600px) {
             .main-message {
                 font-size: 2em;
@@ -77,10 +73,8 @@
     </style>
 </head>
 <body>
-    <!-- Particle Background -->
     <div id="tsparticles"></div>
 
-    <!-- Text Content -->
     <div class="content">
         <h1 class="main-message">Website in Construction.</h1>
         <p class="sub-message">
@@ -89,12 +83,11 @@
         </p>
     </div>
 
-    <!-- Initialize tsParticles -->
     <script>
         tsParticles.load("tsparticles", {
             background: {
                 color: {
-                    value: "#2f2f2f" // Dark grey to match the background
+                    value: "#2f2f2f" 
                 }
             },
             fpsLimit: 144,
@@ -102,7 +95,7 @@
                 events: {
                     onHover: {
                         enable: true,
-                        mode: "repulse" // Particles repel from the cursor
+                        mode: "repulse"
                     },
                     resize: true
                 },
@@ -115,7 +108,7 @@
             },
             particles: {
                 color: {
-                    value: "#ffffff" // White particles
+                    value: "#ffffff"
                 },
                 links: {
                     color: "#89fff3",
