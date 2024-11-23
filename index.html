@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Under Construction</title>
-
+    <title>l34n3r</title>
+    
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
     
     <style>
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
 
         body, html {
             height: 100%;
@@ -26,6 +24,7 @@
             align-items: center;
             text-align: center;
             overflow: hidden;
+            cursor: url('assets/cross.png'), auto;
         }
 
         #tsparticles {
@@ -61,6 +60,38 @@
             text-decoration: underline;
         }
 
+        footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            font-size: 0.9em;
+        }
+
+        .footer-left {
+            text-align: left;
+        }
+
+        .footer-right {
+            text-align: right;
+            color: #bbbbbb;
+        }
+
+        .play-button {
+            background-color: #555555;
+            color: #ffffff;
+            border: none;
+            border-radius: 0px;
+            padding: 5px 5px;
+            cursor: pointer;
+        }
+
+        .play-button:hover {
+            background-color: #777777;
+        }
+
         @media (max-width: 600px) {
             .main-message {
                 font-size: 2em;
@@ -76,18 +107,27 @@
     <div id="tsparticles"></div>
 
     <div class="content">
-        <h1 class="main-message">Website in Construction.</h1>
+        <h1 class="main-message" id="quote-display"></h1>
         <p class="sub-message">
             Discord: <a href="https://discord.com/channels/@me/1303056358844665969">l33n.py</a>,<br>
-            Telegram: <a href="https://t.me/l34n3r">l34n3r</a>.<br>
+            Telegram: <a href="https://t.me/l34n3r">l34n3r</a>.
         </p>
     </div>
+
+    <footer>
+        <div class="footer-left">
+            <button class="play-button" id="playMusicButton">play music.</button>
+        </div>
+        <div class="footer-right">
+            website under constuction.
+        </div>
+    </footer>
 
     <script>
         tsParticles.load("tsparticles", {
             background: {
                 color: {
-                    value: "#2f2f2f" 
+                    value: "#2f2f2f"
                 }
             },
             fpsLimit: 144,
@@ -143,6 +183,34 @@
                 }
             },
             detectRetina: true
+        });
+
+        const quotes = [
+            "Life is 10% what happens to us and 90% how we react to it.",
+            "God is king.",
+            "Patience is a virtue.",
+            "Dream big and dare to fail.",
+            "Strive for greatness.",
+            "The journey of a thousand miles begins with a single step.",
+            "Hard work beats talent when talent doesn’t work hard.",
+            "Success is not final; failure is not fatal: It is the courage to continue that counts.",
+            "Don’t watch the clock; do what it does. Keep going.",
+            "You are never too old to set another goal or to dream a new dream.",
+            "Keep your face always toward the sunshine—and shadows will fall behind you.",
+            "Believe you can and you're halfway there.",
+            "What we achieve inwardly will change outer reality.",
+            "Simplicity is the ultimate sophistication.",
+            "Do one thing every day that scares you.",
+            "It always seems impossible until it's done."
+        ];
+        
+        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+        document.getElementById("quote-display").textContent = randomQuote;
+
+        const audio = new Audio('assets/audio.mp3');
+        document.getElementById('playMusicButton').addEventListener('click', () => {
+            audio.play();
         });
     </script>
 </body>
