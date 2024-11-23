@@ -102,8 +102,6 @@
 <body>
     <div id="tsparticles"></div>
 
-    <div class="animated-title" id="animated-title"></div>
-
     <p class="sub-message">
         Discord: <a href="https://discord.com/channels/@me/1303056358844665969">l33n.py</a>,<br>
         Telegram: <a href="https://t.me/l34n3r">l34n3r</a>.
@@ -175,23 +173,6 @@
             },
             detectRetina: true
         });
-
-        const titleElement = document.getElementById("animated-title");
-        const titleSequence = ["l", "l3", "l34", "l34n", "l34n3", "l34n3r"];
-        let currentIndex = 0;
-        let direction = 1;
-
-        function animateTitle() {
-            titleElement.textContent = titleSequence[currentIndex];
-            currentIndex += direction;
-
-            if (currentIndex === titleSequence.length - 1 || currentIndex === 0) {
-                direction *= -1;
-            }
-
-            setTimeout(animateTitle, 400);
-        }
-        animateTitle();
 
         const quotes = [
             "Life is 10% what happens to us and 90% how we react to it.",
