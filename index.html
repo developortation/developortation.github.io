@@ -20,13 +20,14 @@
             color: #ffffff;
             font-family: 'Arial', sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             overflow: hidden;
             cursor: url('assets/cross.png'), auto;
         }
-        
+
         #tsparticles {
             position: absolute;
             top: 0;
@@ -36,14 +37,11 @@
             z-index: 0;
         }
 
-        .content {
-            z-index: 1;
-            position: relative;
-        }
-
-        .main-message {
+        .animated-title {
             font-size: 3em;
+            font-weight: bold;
             margin-bottom: 20px;
+            z-index: 2;
         }
 
         .sub-message {
@@ -91,7 +89,7 @@
         }
 
         @media (max-width: 600px) {
-            .main-message {
+            .animated-title {
                 font-size: 2em;
             }
 
@@ -104,15 +102,14 @@
 <body>
     <div id="tsparticles"></div>
 
-    <div class="content">
-        <h1 class="main-message" id="quote-display"></h1>
-        <p class="sub-message">
-            Discord: <a href="https://discord.com/channels/@me/1303056358844665969">l33n.py</a>,<br>
-            Telegram: <a href="https://t.me/l34n3r">l34n3r</a>.
-        </p>
-    </div>
+    <div class="animated-title" id="animated-title"></div>
 
-    <div class="bottom-right">website under construction.</div>
+    <p class="sub-message">
+        Discord: <a href="https://discord.com/channels/@me/1303056358844665969">l33n.py</a>,<br>
+        Telegram: <a href="https://t.me/l34n3r">l34n3r</a>.
+    </p>
+
+    <div class="bottom-right">website under construction</div>
     <div class="bottom-left">
         <button class="play-button" id="playMusicButton">play music.</button>
     </div>
@@ -179,9 +176,26 @@
             detectRetina: true
         });
 
+        const titleElement = document.getElementById("animated-title");
+        const titleSequence = ["l", "l3", "l34", "l34n", "l34n3", "l34n3r"];
+        let currentIndex = 0;
+        let direction = 1;
+
+        function animateTitle() {
+            titleElement.textContent = titleSequence[currentIndex];
+            currentIndex += direction;
+
+            if (currentIndex === titleSequence.length - 1 || currentIndex === 0) {
+                direction *= -1;
+            }
+
+            setTimeout(animateTitle, 400);
+        }
+        animateTitle();
+
         const quotes = [
             "Life is 10% what happens to us and 90% how we react to it.",
-            "Jesus is king.",
+            "God is king.",
             "Patience is a virtue.",
             "Dream big and dare to fail.",
             "Strive for greatness.",
@@ -197,7 +211,7 @@
             "Do one thing every day that scares you.",
             "It always seems impossible until it's done."
         ];
-
+        
         const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
         document.getElementById("quote-display").textContent = randomQuote;
@@ -209,11 +223,11 @@
             if (isPlaying) {
                 audio.pause();
                 isPlaying = false;
-                document.getElementById('playMusicButton').textContent = "play music";
+                document.getElementById('playMusicButton').textContent = "Play Some Music";
             } else {
                 audio.play();
                 isPlaying = true;
-                document.getElementById('playMusicButton').textContent = "stop music";
+                document.getElementById('playMusicButton').textContent = "Stop Music";
             }
         });
 
