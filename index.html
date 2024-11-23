@@ -20,13 +20,13 @@
             color: #ffffff;
             font-family: 'Arial', sans-serif;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             overflow: hidden;
             cursor: url('assets/cross.png'), auto;
         }
+
 
         #tsparticles {
             position: absolute;
@@ -37,11 +37,15 @@
             z-index: 0;
         }
 
-        .animated-title {
+        /* Text content styles */
+        .content {
+            z-index: 1;
+            position: relative;
+        }
+
+        .main-message {
             font-size: 3em;
-            font-weight: bold;
             margin-bottom: 20px;
-            z-index: 2;
         }
 
         .sub-message {
@@ -60,7 +64,7 @@
 
         .bottom-right, .bottom-left {
             position: absolute;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.6); 
             font-size: 0.9em;
         }
 
@@ -88,8 +92,9 @@
             background-color: rgba(255, 255, 255, 0.2);
         }
 
+        /* Responsive adjustments */
         @media (max-width: 600px) {
-            .animated-title {
+            .main-message {
                 font-size: 2em;
             }
 
@@ -102,12 +107,15 @@
 <body>
     <div id="tsparticles"></div>
 
-    <p class="sub-message">
-        Discord: <a href="https://discord.com/channels/@me/1303056358844665969">l33n.py</a>,<br>
-        Telegram: <a href="https://t.me/l34n3r">l34n3r</a>.
-    </p>
+    <div class="content">
+        <h1 class="main-message" id="quote-display"></h1>
+        <p class="sub-message">
+            Discord: <a href="https://discord.com/channels/@me/1303056358844665969">l33n.py</a>,<br>
+            Telegram: <a href="https://t.me/l34n3r">l34n3r</a>.
+        </p>
+    </div>
 
-    <div class="bottom-right">website under construction</div>
+    <div class="bottom-right">website under construction.</div>
     <div class="bottom-left">
         <button class="play-button" id="playMusicButton">play music.</button>
     </div>
@@ -176,7 +184,7 @@
 
         const quotes = [
             "Life is 10% what happens to us and 90% how we react to it.",
-            "God is king.",
+            "Jesus is king.",
             "Patience is a virtue.",
             "Dream big and dare to fail.",
             "Strive for greatness.",
@@ -185,14 +193,15 @@
             "Success is not final; failure is not fatal: It is the courage to continue that counts.",
             "Don’t watch the clock; do what it does. Keep going.",
             "You are never too old to set another goal or to dream a new dream.",
-            "Keep your face always toward the sunshine—and shadows will fall behind you.",
+            "Keep your face always towards the sunshine—and shadows will fall behind you.",
             "Believe you can and you're halfway there.",
             "What we achieve inwardly will change outer reality.",
             "Simplicity is the ultimate sophistication.",
             "Do one thing every day that scares you.",
-            "It always seems impossible until it's done."
+            "It always seems impossible until it's done.",
+			"Türkiye + România = ❤"
         ];
-        
+
         const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
         document.getElementById("quote-display").textContent = randomQuote;
@@ -204,18 +213,39 @@
             if (isPlaying) {
                 audio.pause();
                 isPlaying = false;
-                document.getElementById('playMusicButton').textContent = "Play Some Music";
+                document.getElementById('playMusicButton').textContent = "play music.";
             } else {
                 audio.play();
                 isPlaying = true;
-                document.getElementById('playMusicButton').textContent = "Stop Music";
+                document.getElementById('playMusicButton').textContent = "stop music.";
             }
         });
 
         audio.addEventListener('ended', () => {
             isPlaying = false;
-            document.getElementById('playMusicButton').textContent = "Play Some Music";
+            document.getElementById('playMusicButton').textContent = "play music.";
         });
+		
+	
     </script>
+	<script>
+    const tabTitleSequence = ["⠀", "l", "l3", "l34", "l34n", "l34n3", "l34n3r"];
+    let titleIndex = 0;
+    let reverse = false;
+
+    function animateTabTitle() {
+        document.title = tabTitleSequence[titleIndex];
+        if (!reverse) {
+            titleIndex++;
+            if (titleIndex === tabTitleSequence.length - 1) reverse = true;
+        } else {
+            titleIndex--;
+            if (titleIndex === 0) reverse = false;
+        }
+        setTimeout(animateTabTitle, 300);
+    }
+
+    animateTabTitle();
+</script>
 </body>
 </html>
