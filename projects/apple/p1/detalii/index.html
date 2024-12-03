@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hera Iamandi - Detalii</title>
+
+    <!-- tsparticles CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Background Image */
+        body {
+            background: url('photos/brixtonbullies.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100%;
+        }
+
+        /* Full-screen particles container */
+        #tsparticles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(45deg, #ff007f, #d16ba5);
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 2;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+        }
+
+        .back-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Content Container */
+        .details-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Title Style */
+        .details-container h1 {
+            font-size: 3rem;
+            color: #ff007f;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f;
+        }
+
+        /* Details List Style */
+        .details-container ul {
+            list-style: none;
+            text-align: left;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 600px;
+            color: #fff;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .details-container ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Highlighted Fields */
+        .details-container ul li span {
+            color: #ff007f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Particle Background -->
+    <div id="tsparticles"></div>
+
+    <!-- Back Button -->
+    <button class="back-btn" onclick="goBack()">&#8592; Înapoi</button>
+
+    <!-- Content Area -->
+    <div class="details-container">
+        <h1>Detalii despre Hera</h1>
+        <ul>
+            <li><span>Nume:</span> Hera Iamandi</li>
+            <li><span>Vârstă:</span> 1 an și 2-3 luni</li>
+            <li><span>Sex:</span> Femelă</li>
+            <li><span>Specie:</span> Canis Lupus Familiaris</li>
+            <li><span>Rasă:</span> Ciobănesc German / Alsacian</li>
+            <li><span>Greutate (~):</span> 35kg</li>
+            <li><span>Descriere Fizică:</span> Blană neagră, lăbuțe și urechi roz, dinți puternici și dureroși.</li>
+            <li><span>Povestea despre cum a devenit parte din familie:"</span> Luată din Poiana Brașov de tatăl meu. A fost cadou de Moș Nicolae pentru mine și sora mea.</li>
+            <li><span>Vârstă când am luat-o:</span> 2 luni</li>
+            <li><span>Hrană:</span> Devora carne de cal.</li>
+            <li><span>Elemente de Îngrijire:</span> Pieptăn, baie, sticks-uri pentru dinți etc.</li>
+            <li><span>Elemente de Dresaj:</span> Sezi, așteaptă, lasă-l, du-te la locul tău, ascultă.</li>
+            <li><span>Comportament:</span> Jucăușă și activă, inteligentă (doar când vrea ea), zbanghie, teritorială.</li>
+        </ul>
+    </div>
+
+    <script>
+        // Back Button Function
+        function goBack() {
+            // Navigate to the previous page or a specific URL
+            window.history.back();
+        }
+
+        // Initialize tsparticles with falling lines effect
+        tsParticles.load("tsparticles", {
+            background: {
+                color: {
+                    value: "transparent"
+                }
+            },
+            fullScreen: {
+                enable: true,
+                zIndex: 0
+            },
+            particles: {
+                number: {
+                    value: 250,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: "#ff007f"
+                },
+                shape: {
+                    type: "circle",
+                },
+                opacity: {
+                    value: 0.7,
+                    random: true
+                },
+                size: {
+                    value: 5,
+                    random: true
+                },
+                move: {
+                    enable: true,
+                    speed: 5,
+                    direction: "random",
+                    random: true,
+                    straight: false,
+                    outMode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detectsOn: "canvas",
+                events: {
+                    onHover: {
+                        enable: true,
+                        mode: "repulse"
+                    },
+                    onClick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    repulse: {
+                        distance: 100,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 4
+                    }
+                }
+            },
+            retina_detect: true
+        });
+    </script>
+</body>
+</html>
