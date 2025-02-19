@@ -4,12 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hera Iamandi - Detalii</title>
-
-    <!-- tsparticles CDN -->
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
 
     <style>
-        /* Global Reset */
         * {
             margin: 0;
             padding: 0;
@@ -24,15 +21,11 @@
             overflow: hidden;
             position: relative;
         }
-
-        /* Background Image */
         body {
             background: url('photos/brixtonbullies.jpg') no-repeat center center fixed;
             background-size: cover;
             height: 100%;
         }
-
-        /* Full-screen particles container */
         #tsparticles {
             position: absolute;
             top: 0;
@@ -41,8 +34,6 @@
             height: 100%;
             z-index: 0;
         }
-
-        /* Back Button */
         .back-btn {
             position: absolute;
             top: 20px;
@@ -63,7 +54,6 @@
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.8);
         }
 
-        /* Content Container */
         .details-container {
             position: absolute;
             top: 50%;
@@ -71,13 +61,12 @@
             transform: translate(-50%, -50%);
             text-align: center;
             z-index: 2;
-            background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+            background: rgba(0, 0, 0, 0.6);
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
         }
 
-        /* Title Style */
         .details-container h1 {
             font-size: 3rem;
             color: #ff007f;
@@ -85,7 +74,6 @@
             text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f;
         }
 
-        /* Details List Style */
         .details-container ul {
             list-style: none;
             text-align: left;
@@ -101,7 +89,6 @@
             margin-bottom: 10px;
         }
 
-        /* Highlighted Fields */
         .details-container ul li span {
             color: #ff007f;
             font-weight: bold;
@@ -110,13 +97,8 @@
 </head>
 <body>
 
-    <!-- Particle Background -->
     <div id="tsparticles"></div>
-
-    <!-- Back Button -->
     <button class="back-btn" onclick="goBack()">&#8592; Înapoi</button>
-
-    <!-- Content Area -->
     <div class="details-container">
         <h1>Detalii despre Hera</h1>
         <ul>
@@ -137,13 +119,9 @@
     </div>
 
     <script>
-        // Back Button Function
         function goBack() {
-            // Navigate to the previous page or a specific URL
             window.history.back();
         }
-
-        // Initialize tsparticles with falling lines effect
         tsParticles.load("tsparticles", {
             background: {
                 color: {
