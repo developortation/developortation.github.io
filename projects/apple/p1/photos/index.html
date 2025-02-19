@@ -7,7 +7,6 @@
     <title>Hera Iamandi - Poze</title>
     
     <style>
-        /* Global Reset */
         * {
             margin: 0;
             padding: 0;
@@ -16,7 +15,7 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: #1a1a1a; /* Dark background */
+            background: #1a1a1a;
             color: #fff;
             margin: 0;
             padding: 0;
@@ -41,8 +40,6 @@
             color: #ff007f;
             text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f;
         }
-
-        /* Podium Section */
         .podium {
             display: flex;
             justify-content: center;
@@ -87,8 +84,6 @@
             margin-top: 10px;
             display: block;
         }
-
-        /* Grid Section */
         .photo-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -107,8 +102,6 @@
             transform: scale(1.05);
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
         }
-
-        /* Back Button */
         .back-btn {
             display: block;
             margin: 30px auto 0;
@@ -137,7 +130,6 @@
     <div class="container">
         <h1>Galerie Foto</h1>
         
-        <!-- Podium Section -->
         <div class="podium">
             <div class="podium-item silver">
                 <img src="photos/p24.jpeg" alt="Locul 2">
@@ -152,13 +144,8 @@
                 <span>Locul 3</span>
             </div>
         </div>
-
-        <!-- Photo Grid -->
         <div class="photo-grid">
-            <!-- Dynamically Load Photos -->
         </div>
-
-        <!-- Back Button -->
         <a href="#" class="back-btn" onclick="goBack()">&#8592; Înapoi</a>
 		
 
@@ -173,7 +160,7 @@
             },
             fullScreen: {
                 enable: true,
-                zIndex: 1
+                zIndex: 0
             },
             particles: {
                 number: {
@@ -234,18 +221,12 @@
         });
 	
 	
-	
-        // Back Button Function
         function goBack() {
             window.history.back();
         }
 		
-
-        // Total Photos
         const totalPhotos = 33;
         const photoGrid = document.querySelector('.photo-grid');
-
-        // Add Photos to the Grid
         for (let i = 1; i <= totalPhotos; i++) {
             const imgElement = document.createElement('img');
             imgElement.src = `photos/p${i}.jpeg`;
